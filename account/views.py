@@ -226,8 +226,11 @@ class Register(APIView):
     def post(self, request, *args, **kwargs):
         phone = request.data.get('phone', False)
         password = request.data.get('password', False)
+        name=request.data.get('name', False)
+
 
         if phone and password:
+            
             phone = str(phone)
             user = User.objects.filter(phone__iexact = phone)
             if user.exists():
@@ -237,7 +240,7 @@ class Register(APIView):
                 if old.exists():
                     old = old.first()
                     if old.logged:
-                        Temp_data = {'phone': phone, 'password': password }
+                        Temp_data = {'phone': phone, 'password': password,'name':name }
 
                         serializer = CreateUserSerializer(data=Temp_data)
                         serializer.is_valid(raise_exception=True)
@@ -278,7 +281,7 @@ class UpdateProfileView(generics.UpdateAPIView):
     queryset = User.objects.all()
     permission_classes = (permissions.IsAuthenticated,)
     serializer_class = UserSerializer
-    
+
 
 class UserView(viewsets.ModelViewSet):
     queryset = Profile.objects.all()

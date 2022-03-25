@@ -25,15 +25,17 @@ import requests
 
 class UserManager(BaseUserManager):
     parent      = models.BooleanField(default=False)
-    def create_user(self, phone, password=None, is_staff=False, is_active=True, is_parent=False ,is_educator=False ,is_branch=False,is_admin=False):
+    def create_user(self, phone, password=None,name=None,is_staff=False, is_active=True, is_parent=False ,is_educator=False ,is_branch=False,is_admin=False):
         if not phone:
             raise ValueError('users must have a phone number')
         if not password:
             raise ValueError('user must have a password')
 
         user_obj = self.model(
-            phone=phone
+            phone=phone,
+            name=name
         )
+       
         user_obj.set_password(password)
         user_obj.staff = is_staff
         user_obj.admin = is_admin

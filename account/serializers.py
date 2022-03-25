@@ -14,7 +14,6 @@ class ProfileSerializer(serializers.ModelSerializer):
         depth=1
 class User1Serializer(serializers.ModelSerializer):
     profile=ProfileSerializer(read_only=True)
-   
     class Meta:
         model = User
         fields = ('id', 'phone','name','profile')
@@ -23,17 +22,16 @@ class User1Serializer(serializers.ModelSerializer):
 class CreateUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('phone', 'password')
-        extra_kwargs = {'password': {'write_only': True}, }
-
+        fields = ('phone', 'password','name')
+        extra_kwargs = {'password': {'write_only': True},}
+    
     def create(self, validated_data):
+        print(validated_data) 
         user = User.objects.create_user(**validated_data)
         return user
 
 
 class UserSerializer(serializers.ModelSerializer):
-
-   
     class Meta:
         model = User
         fields = ('id', 'phone' )
