@@ -24,7 +24,7 @@ from course import views
 from exam import views as ex
 from account import views as ac
 from course2 import views as ba
-
+from QuizData import views as qu
 router.register('categoryapi', views.CategoryModelViewSet, basename='category')
 router.register('courseapi', views.CourseModelViewSet, basename='course')
 router.register('subjectapi', views.SubjectModelViewSet, basename='subject')
@@ -35,6 +35,8 @@ router.register('answers', ex.ViewsetAnswer, basename='answer')
 router.register('userprofile',ac.UserView,basename="profile") 
 router.register('categorybatch',ba.CategoryModelViewSet,basename="catbatch") 
 router.register('coursebatch',ba.CourseModelViewSet,basename="coursebatch") 
+router.register('questionsapi',qu.questionModelViewSet,basename="questionsapi")
+router.register('testquestionsapi',qu.quesModelViewSet,basename="testquestionsapi")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
