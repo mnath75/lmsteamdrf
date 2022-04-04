@@ -71,8 +71,8 @@ class QuesSerializer(serializers.ModelSerializer):
         fields = [
             "qd_id","qid",'question_para','question_text','ques_lang','description','solution','is_active',
             "choices",
-        
         ]
+        depth=1
     def create(self,validate_data):
         choices=validate_data.pop('choices')
         question=Ques.objects.create(**validate_data)
