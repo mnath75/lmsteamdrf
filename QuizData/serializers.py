@@ -47,7 +47,7 @@ class QuestionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Question
         fields = ['qu_id','qtype','difficulty','language','user','topic']
-        depth=1
+        
 
   
         
@@ -64,7 +64,7 @@ class ChoiceSerializer(serializers.ModelSerializer):
           'is_right'
         ]
         read_only_fields = ('question',)
-        depth=1
+        
 
 class QuesSerializer(serializers.ModelSerializer):
     choices = ChoiceSerializer(many=True)
@@ -74,7 +74,7 @@ class QuesSerializer(serializers.ModelSerializer):
             "qd_id","qid",'question_para','question_text','ques_lang','description','solution','is_active',
             "choices",
         ]
-        depth=1
+      
     def create(self,validate_data):
         choices=validate_data.pop('choices')
         question=Ques.objects.create(**validate_data)
