@@ -47,6 +47,7 @@ class QuestionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Question
         fields = ['qu_id','qtype','difficulty','language','user','topic']
+        depth=1
 
   
         
@@ -63,6 +64,7 @@ class ChoiceSerializer(serializers.ModelSerializer):
           'is_right'
         ]
         read_only_fields = ('question',)
+        depth=1
 
 class QuesSerializer(serializers.ModelSerializer):
     choices = ChoiceSerializer(many=True)
