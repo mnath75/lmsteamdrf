@@ -1,8 +1,8 @@
 from rest_framework import serializers
-from.models import Dlevel,Language,Question,Ques,Choice
+from.models import Question,Ques,Choice
 from account.models import User
 from course.models import Topic
-from Quiz.models import Qtype
+from Quiz.models import Qtype,Dlevel,Language
 
 class StringSerializer(serializers.StringRelatedField):
     def to_internal_value(self, value):
@@ -15,7 +15,7 @@ class QtypeSerializer(serializers.ModelSerializer):
 class DlevelSerializer(serializers.ModelSerializer):
     class Meta:
         model = Dlevel
-        fields = '__all__'
+        fields = [' dl_id ','dl_title']
 
 class TopicSerializer(serializers.ModelSerializer):
     class Meta:
@@ -28,7 +28,7 @@ class UserSerializer(serializers.ModelSerializer):
 class LanguageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Language
-        fields = '__all__'
+        fields = ['lg_id','lg_title']
 
 
 class QuestionSerializer(serializers.ModelSerializer):
@@ -41,7 +41,7 @@ class QuestionSerializer(serializers.ModelSerializer):
     #difficulty=DlevelSerializer(many=True,read_only=True)
     #language=TopicSerializer(many=True,read_only=True)
     #user=UserSerializer(many=True,read_only=True)
-    #topic=TopicSerializer(many=True,read_only=True)
+    #topic=TopicSerializer(many=True,read_only=True)dl_title
 
 
     class Meta:

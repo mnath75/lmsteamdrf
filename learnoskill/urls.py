@@ -30,6 +30,10 @@ router.register('courseapi', views.CourseModelViewSet, basename='course')
 router.register('subjectapi', views.SubjectModelViewSet, basename='subject')
 router.register('topicapi', views.TopicModelViewSet, basename='topic')
 router.register('Qtype', vi.QtypeModelViewSet, basename='qtype')
+
+router.register('DLevel',vi.DlevelModelViewSet,basename="dlevelapi")
+router.register('Language',vi.LanguageModelViewSet,basename="languageapi")
+
 router.register('questions', ex.ViewsetQuestion, basename='question')
 router.register('answers', ex.ViewsetAnswer, basename='answer')
 router.register('userprofile',ac.UserView,basename="profile") 
@@ -37,6 +41,7 @@ router.register('categorybatch',ba.CategoryModelViewSet,basename="catbatch")
 router.register('coursebatch',ba.CourseModelViewSet,basename="coursebatch") 
 router.register('questionsapi',qu.questionModelViewSet,basename="questionsapi")
 router.register('testquestionsapi',qu.quesModelViewSet,basename="testquestionsapi")
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),

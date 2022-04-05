@@ -25,7 +25,7 @@ class ObjectTracking(models.Model):
         ordering = ('-created_at',)
 
 class Language(models.Model):
-    lg_id = models.AutoField(primary_key=True, db_column='qt_id')
+    lg_id = models.AutoField(primary_key=True, db_column='lg_id')
 
     lg_title = models.CharField('Title', max_length=255) 
 
