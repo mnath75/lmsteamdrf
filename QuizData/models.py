@@ -79,7 +79,7 @@ class Ques(ObjectTracking):
 class Choice(models.Model):
     question = models.ForeignKey(Ques, related_name='choices',on_delete=models.DO_NOTHING)
     language = models.ForeignKey(Language, related_name='choice_answer3', on_delete=models.DO_NOTHING,default=None)
-    answer_text = models.CharField( max_length=255, verbose_name=_("Answer Text"),default=None,null=True)
+    answer_text = models.CharField( max_length=255, verbose_name=_("Answer Text"),default=None,null=True,blank=True)
     is_right = models.BooleanField(default=False)
     def __str__(self):
         return self.answer_text
