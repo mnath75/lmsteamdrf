@@ -79,6 +79,7 @@ class QuesSerializer(serializers.ModelSerializer):
         choices=validate_data.pop('choices')
         question=Ques.objects.create(**validate_data)
         for choice in choices:
+            choice.question=question
             Choice.objects.create(**choice,question=question)
         return question    
 
