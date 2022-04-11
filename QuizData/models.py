@@ -60,7 +60,7 @@ class Question(ObjectTracking):
 class Ques(ObjectTracking):
    
     qd_id = models.AutoField(primary_key=True, db_column='qd_id',default=None)
-    qid = models.ForeignKey(Question, related_name='ques_qdes3', on_delete=models.DO_NOTHING,default=None)
+    qid = models.ForeignKey(Question, related_name='ques_qdes3', on_delete=models.SET_NULL,default=None,null=True)
     question_para = models.TextField(blank=True, null=True,default=None)
     question_text = models.TextField(blank=True, null=True,default=None)
     
