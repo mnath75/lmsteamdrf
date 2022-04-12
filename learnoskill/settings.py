@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'django_filters',
     'Quiz',
     'exam',
-    'course2',
+   # 'course2',
     'QuizData'
 ]
 
