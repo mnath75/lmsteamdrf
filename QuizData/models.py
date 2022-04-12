@@ -42,17 +42,17 @@ class Question(ObjectTracking):
         ordering = ['qu_id']
     qu_id = models.AutoField(primary_key=True, db_column='qu_id')
     qtype = models.ForeignKey(
-        Qtype, related_name='qtype_question3', on_delete=models.DO_NOTHING)
+        Qtype, related_name='qtype_question3',  on_delete=models.SET_NULL,null=True,default=None )
 
     difficulty = models.ForeignKey(
-        Dlevel, related_name='dlavel_question3', on_delete=models.DO_NOTHING)
+        Dlevel, related_name='dlavel_question3',  on_delete=models.SET_NULL,null=True,default=None )
 
     language = models.ForeignKey(
-        Language, related_name='language_question3', on_delete=models.DO_NOTHING)
+        Language, related_name='language_question3', on_delete=models.SET_NULL,null=True,default=None )
 
     reference = models.CharField(max_length=500, blank=True, null=True)
-    user = models.ForeignKey(User, on_delete=models.DO_NOTHING, related_name='ques_user1',db_column='user')
-    topic = models.ForeignKey(Topic, on_delete=models.DO_NOTHING,related_name='topic_question3')
+    user = models.ForeignKey(User, on_delete=models.SET_NULL,null=True,default=None , related_name='ques_user1',db_column='user')
+    topic = models.ForeignKey(Topic, on_delete=models.SET_NULL,null=True,default=None ,related_name='topic_question3')
     def __str__(self):
         return str(self.qu_id)
 
@@ -64,7 +64,7 @@ class Ques(ObjectTracking):
     question_para = models.TextField(blank=True, null=True,default=None)
     question_text = models.TextField(blank=True, null=True,default=None)
     
-    ques_lang = models.ForeignKey(Language, related_name='language_qdes3', on_delete=models.DO_NOTHING,default=None)
+    ques_lang = models.ForeignKey(Language, related_name='language_qdes3', on_delete=models.SET_NULL,default=None ,null=True)
     description = models.TextField('description', blank=True, null=True,default=None)
     solution = models.TextField('solution', blank=True, null=True,default=None)
     is_active = models.BooleanField(
@@ -77,8 +77,8 @@ class Ques(ObjectTracking):
     def choices(self):
         return self.choice_set.all()
 class Choice(models.Model):
-    question = models.ForeignKey(Ques, related_name='choices',on_delete=models.DO_NOTHING)
-    language = models.ForeignKey(Language, related_name='choice_answer3', on_delete=models.DO_NOTHING,default=None)
+    question = models.ForeignKey(Ques, related_name='choices', on_delete=models.SET_NULL,default=None , null=True)
+    language = models.ForeignKey(Language, related_name='choice_answer3',  on_delete=models.SET_NULL,default=None,null=True)
     answer_text = models.CharField( max_length=255, verbose_name=_("Answer Text"),default=None)
     is_right = models.BooleanField(default=False)
     def __str__(self):
