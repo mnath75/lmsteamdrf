@@ -70,8 +70,7 @@ class Ques(ObjectTracking):
     is_active = models.BooleanField(
         default=False, verbose_name=_("Active Status"))
     
-    def __str__(self):
-        return self.question_text
+
 
     @property
     def choices(self):
