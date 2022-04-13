@@ -103,7 +103,7 @@ class Testmake(ObjectTracking):
       testName = models.CharField( max_length=255) 
       tags=models.CharField(max_length=255)
       noOfQuestions=models.PositiveIntegerField()
-      #totalMarks=models.PositiveIntegerField(null=True)
+      totalMarks=models.PositiveIntegerField(null=True)
       hour=models.PositiveIntegerField() 
       minute=models.PositiveIntegerField() 
       testCategory= models.CharField(choices=TYPE_CHOICES , max_length = 20,default='1') 
