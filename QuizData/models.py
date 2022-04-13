@@ -83,3 +83,33 @@ class Choice(models.Model):
     is_right = models.BooleanField(default=False)
     def __str__(self):
         return self.answer_text
+
+
+class TestLayout(models.Model):
+    tl_id = models.AutoField(primary_key=True, db_column='tl_id')
+
+    tl_title = models.CharField('Title', max_length=255) 
+    def __str__(self):
+        return self.tl_title  
+TYPE_CHOICES = (
+    ("Prectice", "Prectice"),
+    ("Examination", "Examination")
+)
+
+
+class Testmake(ObjectTracking):
+      te_id = models.AutoField(primary_key=True, db_column='te_id')
+      user = models.ForeignKey(User, models.DO_NOTHING, related_name='test_user1',db_column='user')
+      testName = models.CharField( max_length=255) 
+      tags=models.CharField(max_length=255)
+      noOfQuestions=models.PositiveIntegerField()
+      houre=models.PositiveIntegerField() 
+      minute=models.PositiveIntegerField() 
+      testCategoury= models.CharField(choices=TYPE_CHOICES , max_length = 20,default='1') 
+      testLayout=models.ForeignKey(TestLayout, models.DO_NOTHING, related_name='test_TestLayout',db_column='test_layout')
+      poolQuestion=models.BooleanField()
+      freeAvailable=models.BooleanField()
+      testShowFrom=models.DateTimeField()
+      testEndON=models.DateTimeField(blank=True, null=True)
+      def __str__(self):
+        return self.testName

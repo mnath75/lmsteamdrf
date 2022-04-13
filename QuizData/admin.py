@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from . import models
-from .models import Language,Dlevel,Question,Ques,Choice
+from .models import Language,Dlevel,Question,Ques,Choice,TestLayout,Testmake
 # Register your models here.
 admin.site.register(Ques)
 admin.site.register(Choice)
@@ -9,7 +9,8 @@ admin.site.register(Question)
 admin.site.register(Language)
 admin.site.register(Dlevel)
 
-
+admin.site.register(TestLayout)
+admin.site.register(Testmake)
 
 
 class ChoiceAdmin(admin.ModelAdmin):

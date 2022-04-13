@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from.models import Question,Ques,Choice
+from.models import Question,Ques,Choice,TestLayout,Testmake
 from account.models import User
 from course.models import Topic
 from Quiz.models import Qtype,Dlevel,Language
@@ -106,4 +106,15 @@ class QuesSerializer(serializers.ModelSerializer):
             if choice.id not in keep_choices:
                 choice.delete()
 
-        return instance     
+        return instance   
+
+class TestLayoutSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TestLayout
+        fields = '__all__'
+    
+class TestmakeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Testmake
+        fields = ['te_id','user','testName','tags','noOfQuestions','houre',
+        'minute','testCategoury','testLayout','poolQuestion','freeAvailable','testShowFrom','testEndON']      
