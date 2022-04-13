@@ -109,7 +109,7 @@ class Testmake(ObjectTracking):
       testLayout=models.ForeignKey(TestLayout, models.DO_NOTHING, related_name='test_TestLayout',db_column='test_layout')
       poolQuestion=models.BooleanField()
       freeAvailable=models.BooleanField()
-      testShowFrom=models.DateTimeField()
+      testShowFrom=models.DateTimeField('%d/%m/%y %H:%M')
       testEndON=models.DateTimeField(blank=True, null=True)
       def __str__(self):
         return self.testName
