@@ -116,5 +116,5 @@ class TestLayoutSerializer(serializers.ModelSerializer):
 class TestmakeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Testmake
-        fields = ['te_id','user','testName','tags','noOfQuestions','hour',
+        fields = ['te_id','user','testName','tags','totalMarks','noOfQuestions','hour',
         'minute','testCategory','testLayout','poolQuestion','freeAvailable','testShowFrom','testEndON']      
