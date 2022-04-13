@@ -92,7 +92,7 @@ class TestLayout(models.Model):
     def __str__(self):
         return self.tl_title  
 TYPE_CHOICES = (
-    ("Prectice", "Prectice"),
+    ("Practice", "Practice"),
     ("Examination", "Examination")
 )
 
