@@ -108,8 +108,8 @@ class Testmake(ObjectTracking):
       minute=models.PositiveIntegerField() 
       testCategory= models.CharField(choices=TYPE_CHOICES , max_length = 20,default='1') 
       testLayout=models.ForeignKey(TestLayout, models.DO_NOTHING, related_name='test_TestLayout',db_column='test_layout')
-      poolQuestion=models.BooleanField()
-      freeAvailable=models.BooleanField()
+      poolQuestion=models.BooleanField(default=False)
+      freeAvailable=models.BooleanField(default=False)
       testShowFrom=models.DateTimeField('%d/%m/%y %H:%M')
       testEndON=models.DateTimeField(blank=True, null=True)
       def __str__(self):
