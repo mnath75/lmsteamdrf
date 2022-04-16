@@ -43,6 +43,7 @@ router.register('testquestionsapi',qu.quesModelViewSet,basename="testquestionsap
 
 router.register('testMakesapi',qu.testMakeModelViewSet,basename="testMakesapi")
 router.register('testLayoutapi',qu.testLayoutModelViewSet,basename="testlayoutapi")
+router.register('TestSectionApi',qu.TestSectionModelViewSet,basename="TestSectionApi")
 
 urlpatterns = [
     path('admin/', admin.site.urls),

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from.models import Question,Ques,Choice,TestLayout,Testmake
+from.models import Question,Ques,Choice,TestLayout,Testmake,TestSection
 from account.models import User
 from course.models import Topic
 from Quiz.models import Qtype,Dlevel,Language
@@ -118,3 +118,8 @@ class TestmakeSerializer(serializers.ModelSerializer):
         model = Testmake
         fields = ['te_id','user','testName','tags','totalMarks','noOfQuestions','hour',
         'minute','testCategory','testLayout','poolQuestion','freeAvailable','testShowFrom','testEndON']      
+
+class TestSectionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TestSection
+        fields ='__all__'        
