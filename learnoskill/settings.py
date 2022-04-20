@@ -51,7 +51,8 @@ INSTALLED_APPS = [
     'Quiz',
     'exam',
    # 'course2',
-    'QuizData'
+    'QuizData',
+    'imagedemo'
 ]
 
 MIDDLEWARE = [

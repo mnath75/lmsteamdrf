@@ -25,6 +25,9 @@ from exam import views as ex
 from account import views as ac
 
 from QuizData import views as qu
+
+from imagedemo import views as img
+
 router.register('categoryapi', views.CategoryModelViewSet, basename='category')
 router.register('courseapi', views.CourseModelViewSet, basename='course')
 router.register('subjectapi', views.SubjectModelViewSet, basename='subject')
@@ -45,13 +48,15 @@ router.register('testMakesapi',qu.testMakeModelViewSet,basename="testMakesapi")
 router.register('testLayoutapi',qu.testLayoutModelViewSet,basename="testlayoutapi")
 router.register('TestSectionApi',qu.TestSectionModelViewSet,basename="TestSectionApi")
 
+router.register('imagedemo',img.ImageModelViewSet,basename="Imageapidemo")
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/',include('account.urls')),
     path('course/',include('course.urls')),
     path('quiz/',include('Quiz.urls')),
     path('exam/',include('exam.urls')),
-
+    path('imagedemo/',include('exam.urls')),
     path('', include(router.urls))
 ]
 if settings.DEBUG:
