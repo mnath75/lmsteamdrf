@@ -50,9 +50,10 @@ INSTALLED_APPS = [
     'django_filters',
     'Quiz',
     'exam',
-   # 'course2',
+
     'QuizData',
-    'imagedemo'
+    'imagedemo',
+    'ckeditor'
 ]
 
 MIDDLEWARE = [

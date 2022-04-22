@@ -67,15 +67,25 @@ class ChoiceSerializer(serializers.ModelSerializer):
         
 
 class QuesSerializer(serializers.ModelSerializer):
+    lastQid = serializers.SerializerMethodField()
+
+    def get_lastQid(self,obj):
+        return Question.objects.all().last().qu_id
+
+   
     choices = ChoiceSerializer(many=True)
+
     class Meta:
         model = Ques
         fields = [
-            "qd_id","qid",'question_para','question_text','ques_lang','description','solution','is_active',
+            "qd_id",'lastQid',"qid",'question_para','question_text','ques_lang','description','solution','is_active',
             "choices",
+        
         ]
       
     def create(self,validate_data):
+        
+        
         choices=validate_data.pop('choices')
         question=Ques.objects.create(**validate_data)
         for choice in choices:

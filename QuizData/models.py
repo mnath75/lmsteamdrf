@@ -8,6 +8,9 @@ from django.utils.translation import gettext_lazy as _
 from Quiz.models import Qtype
 from account.models import User
 from course.models import Topic
+from ckeditor.fields import RichTextField
+
+
 
 class Dlevel(models.Model):
     dl_id = models.AutoField(primary_key=True, db_column='dl_id')
@@ -61,12 +64,12 @@ class Ques(ObjectTracking):
    
     qd_id = models.AutoField(primary_key=True, db_column='qd_id',default=None)
     qid = models.ForeignKey(Question, related_name='ques_qdes3', on_delete=models.SET_NULL,default=None,null=True)
-    question_para = models.TextField(blank=True, null=True,default=None)
-    question_text = models.TextField(blank=True, null=True,default=None)
+    question_para = RichTextField(blank=True, null=True,default=None)
+    question_text = RichTextField(blank=True, null=True,default=None)
     
     ques_lang = models.ForeignKey(Language, related_name='language_qdes3', on_delete=models.SET_NULL,default=None ,null=True)
     description = models.TextField('description', blank=True, null=True,default=None)
-    solution = models.TextField('solution', blank=True, null=True,default=None)
+    solution = RichTextField('solution', blank=True, null=True,default=None)
     is_active = models.BooleanField(
         default=False, verbose_name=_("Active Status"))
     
