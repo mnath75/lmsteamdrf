@@ -5,6 +5,6 @@ from .models import demock
 from .serializers import ckSerializer
 from rest_framework import viewsets
 
-class ImageModelViewSet(viewsets.ModelViewSet):
+class ckModelViewSet(viewsets.ModelViewSet):
   queryset = demock.objects.all()
   serializer_class = ckSerializer

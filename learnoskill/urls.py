@@ -28,6 +28,9 @@ from QuizData import views as qu
 
 from imagedemo import views as img
 
+
+from demock import views as ck
+
 router.register('categoryapi', views.CategoryModelViewSet, basename='category')
 router.register('courseapi', views.CourseModelViewSet, basename='course')
 router.register('subjectapi', views.SubjectModelViewSet, basename='subject')
@@ -50,13 +53,15 @@ router.register('TestSectionApi',qu.TestSectionModelViewSet,basename="TestSectio
 
 router.register('imagedemo',img.ImageModelViewSet,basename="Imageapidemo")
 
+router.register('ckdemo',ck.ckModelViewSet,basename="ckdemo")
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/',include('account.urls')),
     path('course/',include('course.urls')),
     path('quiz/',include('Quiz.urls')),
     path('exam/',include('exam.urls')),
-    path('imagedemo/',include('exam.urls')),
+
     path('', include(router.urls))
 ]
 if settings.DEBUG:
