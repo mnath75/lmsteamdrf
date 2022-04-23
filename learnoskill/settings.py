@@ -53,7 +53,8 @@ INSTALLED_APPS = [
 
     'QuizData',
     'imagedemo',
-    'ckeditor'
+    'ckeditor',
+    'demock'
 ]
 
 MIDDLEWARE = [
