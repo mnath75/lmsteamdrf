@@ -31,7 +31,8 @@ SECRET_KEY = 'django-insecure-f+7=(ml#71^iflg2q$(h*j%r@j1zld3nmmp5jtnqz!8!)691yj
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '*'
+    '*',
+    'bestrouting.com'
 
 ]
 
