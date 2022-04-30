@@ -30,31 +30,12 @@ SECRET_KEY = 'django-insecure-f+7=(ml#71^iflg2q$(h*j%r@j1zld3nmmp5jtnqz!8!)691yj
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    '*',
-    'bestrouting.com'
-
-]
+ALLOWED_HOSTS = []
 
 
 # Application definition
 
-
-SHARED_APPS = [
-    'django_tenants',
-    'tenant',
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'account'
-    
-]
-
-
-TENANT_APPS = [
+INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -75,15 +56,8 @@ TENANT_APPS = [
     'ckeditor',
     'demock'
 ]
-INSTALLED_APPS = list(SHARED_APPS) + [app for app in TENANT_APPS if app not in SHARED_APPS]
-#SHOW_PUBLIC_IF_NO_TENANT_FOUND = TrueSHOW_PUBLIC_IF_NO_TENANT_FOUND = True
 
 MIDDLEWARE = [
-    'django_tenants.middleware.main.TenantMainMiddleware',
-
-    # custom tenant middleware
-    'learnoskill.middleware.TenantMiddleware',
-
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -92,12 +66,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-   
 ]
 
 ROOT_URLCONF = 'learnoskill.urls'
-PUBLIC_SCHEMA_URLCONF = 'learnoskill.public_urls'
-SITE_ID = 1
 
 TEMPLATES = [
     {
@@ -107,7 +78,6 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-                # django_tenant finds tenant upon request
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
@@ -124,23 +94,14 @@ WSGI_APPLICATION = 'learnoskill.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django_tenants.postgresql_backend',
-        'NAME': 'learnoskillnewdb',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'datatesting',
         'USER':'postgres',
         'PASSWORD':'root',
         'HOST':'localhost',
         'PORT':'5432'
-
     }
 }
-
-DATABASE_ROUTERS = (
-        'django_tenants.routers.TenantSyncRouter',
-    )
-
-TENANT_DOMAIN_MODEL = "tenant.Domain"      
-TENANT_MODEL = "tenant.Tenant"# app.Model
-#DEFAULT_FILE_STORAGE ='tenant_schemas.storage.TenantFileSystemStorage'
 
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_METHODS = [
