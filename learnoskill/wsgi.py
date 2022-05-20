@@ -14,4 +14,7 @@ from django.core.wsgi import get_wsgi_application
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'learnoskill.settings')
 
 application = get_wsgi_application()
+<<<<<<< HEAD
 
+=======
+>>>>>>> 77f80a2ef915dac1ebda05591c2683aa5fccca06

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -151,3 +152,13 @@ dmypy.json
 
 # pytype static type analyzer
 .pytype/
+=======
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+db.sqlite3
+env/
+.env/
+>>>>>>> 77f80a2ef915dac1ebda05591c2683aa5fccca06
