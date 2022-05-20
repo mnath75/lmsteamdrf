@@ -9,15 +9,11 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-<<<<<<< HEAD
-import io
 
 from urllib.parse import urlparse
 
 import environ
 
-=======
->>>>>>> 77f80a2ef915dac1ebda05591c2683aa5fccca06
 
 from pathlib import Path
 import os
@@ -40,7 +36,7 @@ SECRET_KEY = 'django-insecure-f+7=(ml#71^iflg2q$(h*j%r@j1zld3nmmp5jtnqz!8!)691yj
 DEBUG = True
 
 ALLOWED_HOSTS = [
-<<<<<<< HEAD
+
   
   "*"
 
@@ -51,15 +47,11 @@ ALLOWED_HOSTS = [
 
 # Application definition
 # Application definition
-=======
-    '*',
-    '34.131.166.128',
 
-]
 
 
 # Application definition
->>>>>>> 77f80a2ef915dac1ebda05591c2683aa5fccca06
+
 
 
 SHARED_APPS = [
@@ -82,10 +74,6 @@ TENANT_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-<<<<<<< HEAD
-
-=======
->>>>>>> 77f80a2ef915dac1ebda05591c2683aa5fccca06
     'django.contrib.staticfiles',
     'account',
     'rest_framework',
@@ -151,11 +139,10 @@ WSGI_APPLICATION = 'learnoskill.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django_tenants.postgresql_backend',
-<<<<<<< HEAD
+
         'NAME': 'mydb',
-=======
-        'NAME': 'learnoskillnewdb',
->>>>>>> 77f80a2ef915dac1ebda05591c2683aa5fccca06
+        
+
         'USER':'postgres',
         'PASSWORD':'root',
         'HOST':'localhost',
@@ -233,17 +220,17 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
-<<<<<<< HEAD
+
 #STATICFILES_DIRS=(
        
 #os.path.join(BASE_DIR, 'static'),  os.path.join(BASE_DIR, 'learnoskill/static'),  
 #)
-=======
+
 STATICFILES_DIRS=(
        
        os.path.join(BASE_DIR, 'static'),  os.path.join(BASE_DIR, 'learnoskill/static'),  
 )
->>>>>>> 77f80a2ef915dac1ebda05591c2683aa5fccca06
+
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/media/'
