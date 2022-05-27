@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from urllib.parse import urlparse
 
-import environ
+#import environ
 
 
 from pathlib import Path
@@ -226,13 +226,17 @@ STATIC_URL = '/static/'
 #os.path.join(BASE_DIR, 'static'),  os.path.join(BASE_DIR, 'learnoskill/static'),  
 #)
 
-STATICFILES_DIRS=(
+#STATICFILES_DIRS=(
        
-       os.path.join(BASE_DIR, 'static'),  os.path.join(BASE_DIR, 'learnoskill/static'),  
-)
+#      os.path.join(BASE_DIR, 'static'),  os.path.join(BASE_DIR, 'learnoskill/static'),  
+#)
+
 
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = (
+    STATIC_ROOT,
+)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
