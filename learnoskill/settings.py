@@ -141,8 +141,6 @@ DATABASES = {
         'ENGINE': 'django_tenants.postgresql_backend',
 
         'NAME': 'mydb',
-        
-
         'USER':'postgres',
         'PASSWORD':'root',
         'HOST':'localhost',
