@@ -83,6 +83,7 @@ TENANT_APPS = [
     'django_filters',
     'Quiz',
     'exam',
+    'personal',
 
     'QuizData',
     'imagedemo',
@@ -145,8 +146,7 @@ DATABASES = {
         'PASSWORD':'root',
         'HOST':'localhost',
         'PORT':'5432'
-
-    }
+     }
 }
 
 DATABASE_ROUTERS = (

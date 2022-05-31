@@ -27,10 +27,11 @@ from account import views as ac
 from QuizData import views as qu
 
 from imagedemo import views as img
+from personal import views as ps
 
 
 from demock import views as ck
-
+router.register('homeapi', ps.HomeModelViewSet, basename='homeapi')
 router.register('categoryapi', views.CategoryModelViewSet, basename='category')
 router.register('courseapi', views.CourseModelViewSet, basename='course')
 router.register('subjectapi', views.SubjectModelViewSet, basename='subject')
