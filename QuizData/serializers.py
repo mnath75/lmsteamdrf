@@ -145,4 +145,3 @@ class TestSectionSerializer(serializers.ModelSerializer):
         
         
         ]   
-        read_only_fields=['testmake']     
