@@ -124,12 +124,25 @@ class TestLayoutSerializer(serializers.ModelSerializer):
         fields = '__all__'
     
 class TestmakeSerializer(serializers.ModelSerializer):
+    
     class Meta:
         model = Testmake
         fields = ['te_id','user','testName','tags','totalMarks','noOfQuestions','hour',
         'minute','testCategory','testLayout','poolQuestion','freeAvailable','testShowFrom','testEndON']      
 
 class TestSectionSerializer(serializers.ModelSerializer):
+
+    testmake = serializers.SerializerMethodField()
+
+    def get_testmake(self,obj):
+        return Testmake.objects.all().last().te_id
+
     class Meta:
         model = TestSection
-        fields ='__all__'        
+        fields =['ts_id','testmake','sectionName','hour','minute',
+        'allowedSectionSwitching','skipSectionBeforeTimeOver','studentChoice','useSectionAsBreak',
+        'showPreviousSection','sectionInstruction'       
+        
+        
+        ]   
+        read_only_fields=['testmake']     
