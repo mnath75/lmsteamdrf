@@ -132,10 +132,11 @@ class TestmakeSerializer(serializers.ModelSerializer):
 
 class TestSectionSerializer(serializers.ModelSerializer):
 
-    testmake = serializers.SerializerMethodField()
+    #testmake = serializers.SerializerMethodField()
 
-    def get_testmake(self,obj):
-        return Testmake.objects.all().last().te_id
+   # def get_testmake(self,obj):
+       # return Testmake.objects.all().last().te_id
+    #print('testmake=',testmake)
 
     class Meta:
         model = TestSection
