@@ -1,4 +1,7 @@
 from django.shortcuts import render
+from rest_framework.views import APIView
+from rest_framework.renderers import JSONRenderer
+from django.http import HttpResponse
 
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
@@ -9,7 +12,7 @@ from .models import Language, Question,Ques,Testmake,TestLayout,TestSection
 
 from rest_framework import status
 from datetime import datetime
-from .serializers import QuestionSerializer,QuesSerializer,DlevelSerializer,LanguageSerializer,TestmakeSerializer,TestLayoutSerializer,TestSectionSerializer
+from .serializers import QuestionSerializer,QuesSerializer,DlevelSerializer,LanguageSerializer,TestmakeSerializer,TestLayoutSerializer,TestSectionSerializer,LstmakeSerializer
 from rest_framework import viewsets
 from django_filters import rest_framework as filters
 
@@ -35,3 +38,24 @@ class TestSectionModelViewSet(viewsets.ModelViewSet):
     filter_backends = (filters.DjangoFilterBackend,)
     filterset_fields = ['testmake']
     serializer_class = TestSectionSerializer
+
+# class Lastmake(APIView):
+#     def get(set,request format=None):
+#         lastid=Testmake.objects.all().last().te_id
+#         serializer=TestmakeSerializer
+
+def lastmake(request):
+
+    
+    lastid=Testmake.objects.latest('te_id').te_id
+    my_data = {
+    "lastid": lastid,
+    
+}
+
+
+    serializer=LstmakeSerializer(my_data)
+    print("bbbbb",serializer.data)
+    json_data=JSONRenderer().render(serializer.data)
+    print("hahaha",json_data)
+    return HttpResponse(json_data,content_type='application/json')

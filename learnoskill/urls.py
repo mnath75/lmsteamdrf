@@ -58,6 +58,7 @@ router.register('ckdemo',ck.ckModelViewSet,basename="ckdemo")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('lastmake',qu.lastmake),
     path('api/',include('account.urls')),
     path('course/',include('course.urls')),
     path('quiz/',include('Quiz.urls')),

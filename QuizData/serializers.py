@@ -1,3 +1,4 @@
+from unittest.util import _MAX_LENGTH
 from rest_framework import serializers
 from.models import Question,Ques,Choice,TestLayout,Testmake,TestSection
 from account.models import User
@@ -132,17 +133,48 @@ class TestmakeSerializer(serializers.ModelSerializer):
 
 class TestSectionSerializer(serializers.ModelSerializer):
 
-    #testmake = serializers.SerializerMethodField()
+    # testmake = serializers.SerializerMethodField()
 
-   # def get_testmake(self,obj):
-       # return Testmake.objects.all().last().te_id
-    #print('testmake=',testmake)
+    # def get_testmake(self,obj):
+    #    return Testmake.objects.latest('te_id').te_id
+    # print('testmake=',testmake)
 
     class Meta:
         model = TestSection
         fields =['ts_id','testmake','sectionName','hour','minute',
         'allowedSectionSwitching','skipSectionBeforeTimeOver','studentChoice','useSectionAsBreak',
-        'showPreviousSection','sectionInstruction'       
+        'showPreviousSection','sectionInstruction']    
+
+    # def create(self,instance, validated_data):
+        
+    #     Testmake=instance.Testmake
+
+    #     testsection=TestSection.objects.create(testmake=instance.Testmake,
+    #     sectionName=validated_data['sectionName'],
+    #     hour=validated_data['hour'],
+    #     minute=validated_data['minute'],
+    #     allowedSectionSwitching=validated_data['allowedSectionSwitching'],
+    #     skipSectionBeforeTimeOver=validated_data['skipSectionBeforeTimeOver'],
+    #     studentChoice=validated_data['studentChoice'],
+    #     useSectionAsBreak=validated_data['useSectionAsBreak'],
+    #     showPreviousSection=validated_data['showPreviousSection'],
+    #     sectionInstruction=validated_data['sectionInstruction'],**validated_data )      
         
         
-        ]   
+    #   #  testsection.save()
+    #     return testsection 
+    # def create(self, validated_data):
+    #     user = User.objects.create_user(
+    #         username=validated_data['username'],
+    #         email=validated_data['email'])
+
+    #     user.set_password(validated_data['password'])
+    #     user.save()
+
+    #     return user
+
+class LstmakeSerializer(serializers.Serializer):
+    lastid=serializers.IntegerField()
+    
+   
+
