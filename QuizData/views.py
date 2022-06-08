@@ -7,7 +7,8 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.response import Response
 from course.models import Topic
-from .models import Language, Question,Ques,Testmake,TestLayout,TestSection
+from .models import Language, Question,Ques,Testmake,TestLayout,TestSection,TestSetting,TestQuestion,TestInstruction
+
 #from base.serializers import ProductSerializer, OrderSerializer
 
 from rest_framework import status
@@ -15,6 +16,7 @@ from datetime import datetime
 from .serializers import QuestionSerializer,QuesSerializer,DlevelSerializer,LanguageSerializer,TestmakeSerializer,TestLayoutSerializer,TestSectionSerializer,LstmakeSerializer
 from rest_framework import viewsets
 from django_filters import rest_framework as filters
+from .serializers import TestInstructionSerializer,TestQuestionSerializer,TestSettingSerializer
 
 class questionModelViewSet(viewsets.ModelViewSet):
   queryset = Question.objects.all()
@@ -59,3 +61,25 @@ def lastmake(request):
     json_data=JSONRenderer().render(serializer.data)
     print("hahaha",json_data)
     return HttpResponse(json_data,content_type='application/json')
+def filterdata(request):
+    queryset=Ques.objects.all()
+    filter_backends = (filters.DjangoFilterBackend,)
+    filterset_fields = ['topic']
+    print("asd",queryset)
+
+
+class TestSettingModelViewSet(viewsets.ModelViewSet):
+    queryset=TestSetting.objects.all()
+    filter_backends = (filters.DjangoFilterBackend,)
+    filterset_fields = ['testID']
+    serializer_class = TestSettingSerializer
+class TestQuestionModelViewSet(viewsets.ModelViewSet):
+    queryset=TestQuestion.objects.all()
+    filter_backends = (filters.DjangoFilterBackend,)
+    filterset_fields = ['testID']
+    serializer_class = TestQuestionSerializer 
+class TestInstructionModelViewSet(viewsets.ModelViewSet):
+    queryset=TestInstruction.objects.all()
+    filter_backends = (filters.DjangoFilterBackend,)
+    filterset_fields = ['testID']
+    serializer_class = TestQuestionSerializer 

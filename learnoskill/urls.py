@@ -51,6 +51,10 @@ router.register('testquestionsapi',qu.quesModelViewSet,basename="testquestionsap
 router.register('testMakesapi',qu.testMakeModelViewSet,basename="testMakesapi")
 router.register('testLayoutapi',qu.testLayoutModelViewSet,basename="testlayoutapi")
 router.register('TestSectionApi',qu.TestSectionModelViewSet,basename="TestSectionApi")
+router.register('TestSettingApi',qu.TestSettingModelViewSet,basename="TestSettingApi")
+router.register('TestQuestionApi',qu.TestQuestionModelViewSet,basename="TestQuestionApi")
+router.register('TestInstractionApi',qu.TestInstructionModelViewSet,basename="TestInstructionApi")
+
 
 router.register('imagedemo',img.ImageModelViewSet,basename="Imageapidemo")
 

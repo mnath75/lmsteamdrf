@@ -1,6 +1,6 @@
 from unittest.util import _MAX_LENGTH
 from rest_framework import serializers
-from.models import Question,Ques,Choice,TestLayout,Testmake,TestSection
+from.models import Question,Ques,Choice,TestLayout,Testmake,TestSection,TestSetting,TestQuestion,TestInstruction
 from account.models import User
 from course.models import Topic
 from Quiz.models import Qtype,Dlevel,Language
@@ -177,4 +177,15 @@ class LstmakeSerializer(serializers.Serializer):
     lastid=serializers.IntegerField()
     
    
-
+class TestInstructionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TestInstruction
+        fields = '__all__'
+class TestQuestionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TestQuestion
+        fields = '__all__'
+class TestSettingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TestSetting
+        fields = '__all__'
