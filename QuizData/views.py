@@ -82,4 +82,4 @@ class TestInstructionModelViewSet(viewsets.ModelViewSet):
     queryset=TestInstruction.objects.all()
     filter_backends = (filters.DjangoFilterBackend,)
     filterset_fields = ['testID']
-    serializer_class = TestQuestionSerializer 
+    serializer_class = TestInstructionSerializer 

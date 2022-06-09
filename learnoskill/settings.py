@@ -88,7 +88,8 @@ TENANT_APPS = [
     'QuizData',
     'imagedemo',
     'ckeditor',
-    'demock'
+    'demock',
+    'result'
 ]
 INSTALLED_APPS = list(SHARED_APPS) + [app for app in TENANT_APPS if app not in SHARED_APPS]
 #SHOW_PUBLIC_IF_NO_TENANT_FOUND = TrueSHOW_PUBLIC_IF_NO_TENANT_FOUND = True
