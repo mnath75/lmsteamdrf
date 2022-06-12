@@ -83,6 +83,7 @@ class QuesSerializer(serializers.ModelSerializer):
             "choices",
         
         ]
+        depth=1
       
     def create(self,validate_data):
         
@@ -185,6 +186,7 @@ class TestQuestionSerializer(serializers.ModelSerializer):
     class Meta:
         model = TestQuestion
         fields = '__all__'
+
 class TestSettingSerializer(serializers.ModelSerializer):
     class Meta:
         model = TestSetting

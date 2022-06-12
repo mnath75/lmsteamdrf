@@ -144,7 +144,7 @@ class TestQuestion(ObjectTracking):
 
     rightMarks=models.FloatField()
     wrongMarks=models.FloatField()
-    partialMarks=models.FloatField()
+    partialMarks=models.FloatField(default=None,null=True)
     user = models.ForeignKey(User, models.DO_NOTHING, related_name='testQ_user1',db_column='user')
 
     
